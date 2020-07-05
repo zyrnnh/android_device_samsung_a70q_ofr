@@ -25,8 +25,8 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     # THIS REQUIRES R11 sources and pull latest commits to the vendor tree
     # export FOX_R11=1
 
-    # export TW_DEVICE_VERSION="R10.1_0-alpha"
-    # export FOX_VERSION=10
+    export TW_DEVICE_VERSION="R10.1_0-alpha"
+    export FOX_VERSION=10
     export PLATFORM_VERSTION="10.0"
     export PLATFORM_SECURITY_PATCH="2099-12-31"
     export TW_DEFAULT_LANGUAGE="en"
@@ -119,15 +119,14 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 
     # Mmm, show yourself >>
     if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
-  	   export | grep "FOX" >> $FOX_BUILD_LOG_FILE
-  	   export | grep "OF_" >> $FOX_BUILD_LOG_FILE
-   	   export | grep "TARGET_" >> $FOX_BUILD_LOG_FILE
-  	   export | grep "TW_" >> $FOX_BUILD_LOG_FILE
- 	fi
+        export | grep "FOX" >> $FOX_BUILD_LOG_FILE
+        export | grep "OF_" >> $FOX_BUILD_LOG_FILE
+        export | grep "TARGET_" >> $FOX_BUILD_LOG_FILE
+        export | grep "TW_" >> $FOX_BUILD_LOG_FILE
+    fi
 
-	add_lunch_combo omni_"$FDEVICE"-eng
-	add_lunch_combo omni_"$FDEVICE"-userdebug
-
+    add_lunch_combo omni_"$FDEVICE"-eng
+    add_lunch_combo omni_"$FDEVICE"-userdebug
 fi
 
 
